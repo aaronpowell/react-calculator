@@ -1,0 +1,12 @@
+{
+  "name": "react-calculator",
+  "version": "1.0.0",
+  "description": "A demo of using react + redux",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Aaron Powell <me@aaron-powell.com>",
+  "license": "MIT"
+}
