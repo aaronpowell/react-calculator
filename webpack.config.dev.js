@@ -3,7 +3,7 @@ var config = require('./webpack.config.base');
 
 config.devtool = 'cheap-module-inline-source-map';
 
-config.entry.app = [
+config.entry = [
   'webpack-hot-middleware/client?reload=true',
   './src/index'
 ];

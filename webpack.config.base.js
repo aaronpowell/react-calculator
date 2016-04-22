@@ -4,12 +4,13 @@ var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 var config = {
     preLoaders: [{
-        test: /\.ts/,
+        test: /\.ts(x?)$/,
         loader: 'tslint',
         exclude: /node_modules/
     }],
 
     output: {
+        path: path.resolve(__dirname, './public/'),
         filename: 'bundle.js',
         publicPath: '/public/'
     },
@@ -18,12 +19,14 @@ var config = {
         extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js']
     },
 
-    loaders: [{
-        test: /\.tsx?$/,
-        loader: 'ts-loader',
-        exclude: /node_modules/,
-        include: path.resolve(__dirname, 'src')
-    }],
+    module: {
+        loaders: [{
+            test: /\.ts(x?)$/,
+            loader: 'babel-loader?presets[]=es2015&presets[]=react!ts-loader',
+            exclude: /node_modules/,
+            include: path.resolve(__dirname, 'src')
+        }],
+    },
 
     plugins: [
         new CleanWebpackPlugin(['public'], {

@@ -1,6 +1,13 @@
 {
     "compilerOptions": {
-        "target": "es5",
-        "sourceMap": true
-    }
+        "target": "es6",
+        "sourceMap": true,
+        "jsx": "preserve"
+    },
+    "exclude": [
+        "public",
+        "node_modules",
+        "typings/browser.d.ts",
+        "typings/browser"
+    ]
 }
