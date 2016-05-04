@@ -5,12 +5,16 @@ import {Provider} from 'react-redux';
 import createCalculatorStore from './stores/calculator-store';
 
 import App from './containers/App';
+import DevTools from './components/DevTools';
 
 const store = createCalculatorStore();
 
 render(
     <Provider store={store}>
-        <App />
+        <div>
+            <App />
+            <DevTools />
+        </div>
     </Provider>,
     document.getElementById('main')
 );

@@ -1,11 +1,9 @@
-import { createAction, Action } from 'redux-actions';
-import { SET_LEFT } from './types';
+import { UPDATE_CURRENT } from './types';
 
-const setLeft = createAction<number>(
-    SET_LEFT,
-    (value: number) => value
-);
+const updateCurrentAction = function (input: string) {
+
+}
 
 export {
-    setLeft
+    updateCurrentAction
 };
