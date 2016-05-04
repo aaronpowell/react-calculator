@@ -1,8 +1,8 @@
 import { handleActions, Action } from 'redux-actions';
-import { SET_LEFT } from '../actions/types';
+import { UPDATE_CURRENT } from '../actions/types';
 
 export default handleActions<CalculatorStoreState>({
-    [SET_LEFT]: (state: CalculatorStoreState, action: Action) => {
+    [UPDATE_CURRENT]: (state: CalculatorStoreState, action: Action) => {
         let current = {
             left: action.payload as number
         } as Equation;

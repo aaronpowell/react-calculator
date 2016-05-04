@@ -1,16 +1,20 @@
 import * as React from 'react';
-import { IDispatch, IActionGeneric, bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { updateCurrentAction } from '../actions/index';
 
 import Display from '../components/Display';
 
 class App extends React.Component<any, any> {
     render() {
         var { dispatch, current } = this.props;
+
+        var actions = bindActionCreators({ updateCurrentAction }, dispatch);
+
         return (
             <div>
                 <Display value={current ? current.left : '' }
-                         keyPress={e => dispatch({ type: 'SET_LEFT' })}
+                         keyPress={e => actions.updateCurrentAction(e)}
                          />
             </div>
         );
