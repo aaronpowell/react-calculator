@@ -1,7 +1,9 @@
 import { createStore, compose } from 'redux';
-import calculatorReducer from '../reducers/index';
+import processEquation from '../reducers/process-equation';
+import updateHistory from '../reducers/update-history';
 import { persistState } from 'redux-devtools';
 import DevTools from '../components/DevTools';
+import initialState from './initial-state';
 
 declare var module: any;
 declare var require: any;
@@ -16,19 +18,21 @@ function getDebugSessionKey () {
     return (matches && matches.length > 0) ? matches[1] : null;
 }
 
-const initialState = {
-    history: [],
-    current: undefined,
-    currentAnswer: undefined
-} as CalculatorStoreState;
+function combineReducers (...reducers) {
+    return (prev, curr) =>
+        reducers.reduce(
+            (p, r) => r(p, curr)
+            , prev
+        );
+}
 
 export default function createCalculatorStore() {
-    const store = createStore(calculatorReducer, initialState, enhancer);
+    const store = createStore(combineReducers(processEquation, updateHistory), enhancer);
 
     // Hot reload reducers (requires Webpack or Browserify HMR to be enabled)
     if (module.hot) {
-        module.hot.accept('../reducers', () =>
-            store.replaceReducer(require('../reducers/index'))
+        module.hot.accept('../reducers/process-equation', () =>
+            store.replaceReducer(require('../reducers/process-equation'))
         );
     }
 

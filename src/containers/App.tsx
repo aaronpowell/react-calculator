@@ -7,16 +7,16 @@ import Display from '../components/Display';
 
 class App extends React.Component<any, any> {
     render() {
-        var { dispatch, current } = this.props;
+        var { dispatch, current, currentAnswer, history } = this.props;
 
         var actions = bindActionCreators({ updateCurrentAction }, dispatch);
 
+        var value = currentAnswer || (current.operand ? current.right : current.left);
+
         return (
-            <div>
-                <Display value={current ? current.left : '' }
-                         keyPress={e => actions.updateCurrentAction(e)}
-                         />
-            </div>
+            <Display value={value}
+                     history={history}
+                     keyPress={e => actions.updateCurrentAction(e)} />
         );
     }
 }

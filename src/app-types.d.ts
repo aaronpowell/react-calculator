@@ -1,7 +1,7 @@
 interface Equation {
-    left: number;
+    left: string;
     operand?: string;
-    right?: number;
+    right?: string;
 }
 
 interface CalculatorStoreState {
