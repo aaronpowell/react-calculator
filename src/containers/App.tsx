@@ -21,6 +21,6 @@ class App extends React.Component<any, any> {
     }
 }
 
-const mapStateToProps = (state: CalculatorStoreState) => state;
+const mapStateToProps = (state: CalculatorStoreState) => (console.dir(state), state);
 
 export default connect(mapStateToProps)(App);
