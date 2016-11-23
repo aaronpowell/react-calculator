@@ -5,7 +5,7 @@ import { updateCurrentAction } from '../actions/index';
 
 import Display from '../components/Display';
 
-class App extends React.Component<any, any> {
+class App extends React.Component<IComponentProps, any> {
     render() {
         var { dispatch, current, currentAnswer, history } = this.props;
 
@@ -23,4 +23,4 @@ class App extends React.Component<any, any> {
 
 const mapStateToProps = (state: CalculatorStoreState) => (console.dir(state), state);
 
-export default connect(mapStateToProps)(App);
+export default connect<IComponentProps>(mapStateToProps, mapDispatchToProps)(App);
