@@ -3,9 +3,9 @@ import { UPDATE_CURRENT } from '../actions/types';
 import initialState from '../stores/initial-state';
 import * as mathy from 'mathy';
 
-export default handleActions<CalculatorStoreState>({
-    [UPDATE_CURRENT]: (state: CalculatorStoreState, action: Action) => {
-        let value = action.payload.toString();
+export default handleActions<CalculatorStoreState, string>({
+    [UPDATE_CURRENT]: (state: CalculatorStoreState, action: Action<string>) => {
+        let value = action.payload;
         let { current } = state;
         var currentAnswer;
 

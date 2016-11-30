@@ -1,7 +1,6 @@
 import { createStore, compose } from 'redux';
 import processEquation from '../reducers/process-equation';
 import updateHistory from '../reducers/update-history';
-import { persistState } from 'redux-devtools';
 import initialState from './initial-state';
 
 declare var module: any;
